@@ -41,6 +41,5 @@ def predict_datapoint():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=4444, debug=True)  # http://127.0.0.1:4444/
-    # http://127.0.0.1:4444/predictdata
+    app.run(host="0.0.0.0") 
 
