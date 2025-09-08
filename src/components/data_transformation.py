@@ -14,6 +14,7 @@ from src.logger import logging
 from src.utils import save_object
 
 
+
 @dataclass
 class DataTransformationConfig:
     preprocessor_ob_file_path = os.path.join("artifacts", "preprocessor.pkl")
@@ -25,7 +26,7 @@ class DataTransformation:
 
     def get_data_transformer_object(self):
         """
-        This funstion is responsible for data transformation
+        This function is responsible for data transformation
         """
         try:
             numerical_columns = ["writing_score", "reading_score"]
@@ -90,8 +91,10 @@ class DataTransformation:
                 "Applying preprocessing object on training dataframe and testing dataframe"
             )
 
-            input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df)
-            input_feature_test_arr=preprocessing_obj.transform(input_feature_test_df)
+            input_feature_train_arr = preprocessing_obj.fit_transform(
+                input_feature_train_df
+            )
+            input_feature_test_arr = preprocessing_obj.transform(input_feature_test_df)
 
             train_arr = np.c_[
                 input_feature_train_arr, np.array(target_feature_train_df)
